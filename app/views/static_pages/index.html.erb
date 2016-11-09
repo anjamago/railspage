@@ -1,0 +1,13 @@
+<h1 class="text-center" > WELCOME TO RAILS, BIRDS </h1>
+<div class="container">
+<section class="chirps">
+  <% @chirps.each do |ch| %>
+    <article class="chirp">
+      <ul>
+        <li><%= ch.user.first_name if ch.user %></li>
+      </ul>
+      <%= ch.body %>
+    </article>
+  <% end if @chirps.any?%>
+</section>
+</div>

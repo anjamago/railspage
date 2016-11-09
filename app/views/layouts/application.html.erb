@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsBirds</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="<%= root_path %>">Brand</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in?  %>
+            <li><a href="<%= sessions_delete_path %>" data-method="delete">Log out</a></li>
+          <% else %>
+            <li><a href="<%= sessions_new_path %>">Sign in</a></li>
+            <li><a href="<%= new_users_path %>">Sign up</a></li>
+          <% end %>
+        </ul>
+       </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
